@@ -1,5 +1,6 @@
 from django.db import models
 
+
 VERY_BAD = 1
 BAD = 2
 SATISFACTORY = 3
@@ -14,6 +15,7 @@ MARK_CHOICES = (
     (PERFECT, "Отлично")
 )
 
+
 class Product(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -22,8 +24,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+
 class Review(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     text = models.TextField()
     mark = models.PositiveSmallIntegerField(choices=MARK_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)

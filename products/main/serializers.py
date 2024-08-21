@@ -1,11 +1,12 @@
 from rest_framework import serializers
 from main.models import Product, Review
 
+
 class ReviewSerializer(serializers.ModelSerializer):
     # реализуйте все поля
     class Meta:
         model = Review
-        fields = ['product', 'text', 'mark', 'created_at']
+        fields = ['text', 'mark']
         #fields = "__all__"
 
 class ProductListSerializer(serializers.Serializer):

@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'products.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'netology_db',
+        'NAME': 'test',
         'USER': 'postgres',
         'PASSWORD': 'b2u18',
         'HOST': "localhost",
