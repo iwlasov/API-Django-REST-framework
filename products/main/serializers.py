@@ -5,7 +5,8 @@ class ReviewSerializer(serializers.ModelSerializer):
     # реализуйте все поля
     class Meta:
         model = Review
-        fields = "__all__"
+        fields = ['product', 'text', 'mark', 'created_at']
+        #fields = "__all__"
 
 class ProductListSerializer(serializers.Serializer):
     # реализуйте поля title и price
@@ -14,8 +15,8 @@ class ProductListSerializer(serializers.Serializer):
 
 class ProductDetailsSerializer(serializers.ModelSerializer):
     # реализуйте поля title, description, price и reviews (список отзывов к товару)
-    rewiews = ReviewSerializer(many=True, read_only=True)
+    reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
-        fields = ['title', 'description', 'price', 'rewiews']
+        fields = ['title', 'description', 'price', 'reviews']
